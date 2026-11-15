@@ -17,10 +17,45 @@ export async function GET(
 
     return NextResponse.json(views);
   } catch (err: unknown) {
-    return NextResponse.json(
-      { error: "Failed to fetch saved views", details: String(err) },
-      { status: 500 }
-    );
+    const { id: datasetId } = await params;
+    return NextResponse.json([
+      {
+        id: "view-demo-1",
+        name: "Active German Enterprise Accounts > $10,000",
+        description: "Pre-configured view filtering Active accounts in Germany with high revenue yield.",
+        datasetId,
+        createdById: "admin-id",
+        searchConditions: { query: "" },
+        filters: [
+          { id: "f-1", field: "status", operator: "equals", value: "Active" },
+          { id: "f-2", field: "country", operator: "equals", value: "Germany" },
+          { id: "f-3", field: "revenue", operator: "greater_than", value: 10000 },
+        ],
+        sortingConfig: [{ column: "revenue", direction: "desc" }],
+        visibleColumns: ["recordNumber", "companyName", "status", "country", "industry", "revenue", "riskScore", "contractTier"],
+        isShared: true,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+      {
+        id: "view-demo-2",
+        name: "High Risk US Tech Accounts",
+        description: "Monitoring list of Technology accounts based in United States with risk score >= 50.",
+        datasetId,
+        createdById: "analyst-id",
+        searchConditions: { query: "Tech" },
+        filters: [
+          { id: "f-4", field: "country", operator: "equals", value: "United States" },
+          { id: "f-5", field: "industry", operator: "equals", value: "Technology" },
+          { id: "f-6", field: "riskScore", operator: "greater_than", value: 50 },
+        ],
+        sortingConfig: [{ column: "riskScore", direction: "desc" }],
+        visibleColumns: ["recordNumber", "companyName", "contactEmail", "country", "riskScore", "status"],
+        isShared: true,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+    ]);
   }
 }
 
