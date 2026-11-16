@@ -2,6 +2,10 @@
 
 > **A Data-Intensive Full-Stack Engineering Assessment Platform** engineered to discover, filter, search, and analyze **100,000+ to millions of structured business records** with sub-50ms query response times, PostgreSQL GIN indexing, and Redux Toolkit state architecture.
 
+🌐 **Live Production Deployment**: [https://sohanuls-l1-task.vercel.app](https://sohanuls-l1-task.vercel.app)  
+📁 **GitHub Repository**: [https://github.com/sayedsohanulislam/project_L1](https://github.com/sayedsohanulislam/project_L1)
+
+[![Live Vercel](https://img.shields.io/badge/Vercel-Live_Deployment-black?style=flat-square&logo=vercel)](https://sohanuls-l1-task.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-16.4.6-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.3-blue?style=flat-square&logo=react)](https://react.dev/)
 [![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-RTK_Query-764ABC?style=flat-square&logo=redux)](https://redux-toolkit.js.org/)
